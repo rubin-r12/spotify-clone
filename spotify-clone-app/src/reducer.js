@@ -1,11 +1,10 @@
-import Player from "./Player";
 
 export const initialState = {
     user: null,
     playlists: [],
     playing: false,
     item: null,
-    token:null,
+    token: null,
 };
 
 const reducer = (state, action) => {
@@ -13,6 +12,12 @@ const reducer = (state, action) => {
 
     // Action ->type, [payload]
     switch(action.type) {
+        case 'SET_PLAYLISTS':
+            return {
+                ...state,
+                playlists: action.playlists,
+            };
+        
         case 'SET_USER':
             return {
                 ...state,
@@ -24,6 +29,9 @@ const reducer = (state, action) => {
                 ...state,
                 token: action.token,
             };
+
+        
+            
         default:
             return state;
     }
